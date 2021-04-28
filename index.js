@@ -1,9 +1,10 @@
-var express = require("express");
-var formidable = require("express-formidable");
-var cors = require("cors");
-var app = express();
-var port = process.env.PORT || 6500;
-var frontend = process.env.FRONTEND || "https://runcode.paulonteri.com";
+const express = require("express");
+const formidable = require("express-formidable");
+const cors = require("cors");
+const app = express();
+
+const config = require("./services/config");
+
 const python = require("./services/python");
 const java = require("./services/java");
 const javascript = require("./services/javascript");
@@ -31,11 +32,9 @@ const corsOptions = () => {
 app.use(cors(corsOptions()));
 
 // ROUTES
-app.get("/", (req, res) =>
-  res.send(
-    "Hi There! You shouldn't be seeing this. 🙂 Try:{https://runcode.paulonteri.com/#/} or {https://github.com/paulonteri/remote-code-execution-environment}"
-  )
-);
+app.get("/", (req, res) => {
+  res.send({ success: true, message: "Hi there!" });
+});
 
 app.post("/code", (req, res) => {
   var text = req.fields.text;
@@ -82,8 +81,6 @@ app.post("/code", (req, res) => {
   }
 });
 
-app.listen(port, () =>
-  console.log(`Backend listening at http://localhost:${port}`)
+app.listen(config.port, () =>
+  console.log(`Backend listening at http://localhost:${config.port}`)
 );
-
-// end

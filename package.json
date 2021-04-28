@@ -1,25 +1,23 @@
 {
-  "name": "code-executer",
+  "name": "code-disdev-space",
   "version": "1.0.0",
-  "description": "Remote Code Execution App",
+  "description": "Remote Code Execution API",
   "private": true,
-  "main": "Server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon Server.js",
-    "client": "cd ../frontend && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn start\" \"yarn run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "devStart": "nodemon ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulonteri/code-executer.git"
+    "url": "git+https://github.com/disdev-space/code.disdev.space.git"
   },
   "author": "Paul Onteri - https://paulonteri.com/",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/paulonteri/code-executer/issues"
   },
-  "homepage": "https://github.com/paulonteri/code-executer#readme",
+  "homepage": "https://code.disdev.space",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
