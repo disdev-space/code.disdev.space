@@ -75,7 +75,7 @@ const runCode = (code, func) => {
                     console.log("Successfully executed !");
                     console.log("Stdout: " + stdout);
                   }
-                  func({ success:true stdout: stdout }, folder);
+                  func({ success:true, stdout: stdout }, folder);
                 }
               }
             );
