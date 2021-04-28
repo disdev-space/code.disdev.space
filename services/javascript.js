@@ -50,13 +50,13 @@ const runCode = (code, func) => {
             } else {
               errorMessage = "Something went wrong. Please try again";
             }
-            func({ ERROR: errorMessage }, actualFile);
+            func({ success: false, error: errorMessage }, actualFile);
           } else {
             if (env != "production") {
               console.log("Successfully executed !");
               console.log("Stdout: " + stdout);
             }
-            func({ stdout: stdout }, actualFile);
+            func({ success: true, stdout: stdout }, actualFile);
           }
         });
       }
@@ -64,7 +64,7 @@ const runCode = (code, func) => {
   } else {
     console.log(code);
     func({
-      ERROR:
+      success: false, error:
         "Not allowed! Please check that you are not using some keywords such as 'os' ",
     });
   }

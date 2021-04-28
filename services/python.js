@@ -54,13 +54,13 @@ const runCode = (code, func) => {
             } else {
               errorMessage = "Something went wrong. Please try again";
             }
-            func({ ERROR: errorMessage }, actualFile);
+            func({ success: false, error: errorMessage }, actualFile);
           } else {
             if (env != "production") {
               console.log("Successfully executed !");
               console.log("Stdout: " + stdout);
             }
-            func({ stdout: stdout }, actualFile);
+            func({ success: true, stdout: stdout }, actualFile);
           }
         });
       }

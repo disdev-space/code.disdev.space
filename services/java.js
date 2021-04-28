@@ -35,7 +35,7 @@ const runCode = (code, func) => {
 
     fs.mkdir(folder, 0777, function (err) {
       if (err) {
-        func({ ERROR: "Server error" });
+        func({ success: false, error: "Server error" });
       } else {
         fs.writeFile(path + filename, code, function (err) {
           if (err) {
@@ -69,13 +69,13 @@ const runCode = (code, func) => {
                   } else {
                     errorMessage = "Something went wrong. Please try again";
                   }
-                  func({ ERROR: errorMessage }, folder);
+                  func({ success:false, error: errorMessage }, folder);
                 } else {
                   if (env != "production") {
                     console.log("Successfully executed !");
                     console.log("Stdout: " + stdout);
                   }
-                  func({ stdout: stdout }, folder);
+                  func({ success:true stdout: stdout }, folder);
                 }
               }
             );
