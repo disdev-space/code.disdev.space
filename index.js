@@ -1,6 +1,5 @@
 const express = require("express");
 const formidable = require("express-formidable");
-const cors = require("cors");
 const app = express();
 
 const config = require("./services/config");
@@ -14,22 +13,6 @@ const rust = require("./services/rust");
 
 
 app.use(formidable());
-
-const corsOptions = () => {
-  if (process.env.NODE_ENV === "production") {
-    return {
-      origin: frontend,
-      optionsSuccessStatus: 200,
-      methods: "GET,POST",
-    };
-  } else {
-    return {
-      optionsSuccessStatus: 200,
-    };
-  }
-};
-
-app.use(cors(corsOptions()));
 
 // ROUTES
 app.get("/", (req, res) => {
