@@ -68,7 +68,7 @@ const runCode = (code, func) => {
   } else {
     console.log(code);
     func({
-      ERROR:
+      success: false, error:
         "Not allowed! Please check that you are not using some keywords such as 'os' ",
     });
   }
