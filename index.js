@@ -1,5 +1,6 @@
 const express = require("express");
 const formidable = require("express-formidable");
+const cors = require('cors');
 const app = express();
 
 const config = require("./services/config");
@@ -9,6 +10,7 @@ const java = require("./services/java");
 const javascript = require("./services/javascript");
 
 app.use(formidable());
+app.use(cors());
 
 // ROUTES
 app.get("/", (req, res) => {
